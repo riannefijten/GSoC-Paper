@@ -37,9 +37,6 @@ Fortunately, some tools exist that can analyse and visualize metabolome data. Wi
 
 In order to fully incorporate metabolomics in Pathvisio data analysis, a new plugin is needed that can display information about certain metabolites from within the Pathvisio window. This will allow the researcher to immediately discover interesting properties of those metabolites and allow the researcher to compare their NMR and MS metabolite results with predicted spectra available in commonly used databases.
 
-\section{Approach}
-The approach of the project was to write a plugin that can show metabolite info when examining a pathway in Pathvisio.
-
 \begin{methods}
 \section{Methods}
 
@@ -51,7 +48,7 @@ The approach of the project was to write a plugin that can show metabolite info 
 The plugin provides important information for the selected metabolite in Pathvisio. It has been split up into three categories. First, general information is shown, including HMDB ID, InChI and InChI key, molecular formula and the metabolite's name. Secondly, linkouts to MS spectra and NMR spectra from the HMDB database are provided. Finally, carbon NMR chemical shifts have been calculated using CDK (Chemistry Development Kit) and are shown in the plugin window.
 
 \begin{table}[ht]
-\caption{The databases used in the plugin}
+\caption{The databases used in the plugin \cite{cdk} \cite{hmdb} \cite{bridge}}
 \centering  % used for centering table
 \begin{tabular}{p{1cm}p{7cm}}
 \hline\hline   
