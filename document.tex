@@ -29,63 +29,58 @@ The plugin is available on the  \href{http://pathvisio.org/wiki/PluginDocumentat
 \end{abstract}
 
 \section{Introduction}
-Wikipathways: what is it? How does it work?
-Wikipathways is an open access and open source database which contains a multitude of pathways for many different species of organisms. These pathways are created manually and are curated by the Wikipathways community. (Ref) 
+Understanding organisms, their functioning and disease are the essential building blocks of life science research. Previously, a lot of work was performed on the genome and proteome. However, the metabolome is also a vital part of cellular functioning and is most related to the phenotype, and thus an important factor in life science research.
 
-Pathvisio: why use pathvisio?
-Pathvisio is a stand-alone application for computers that is based on Wikipathways and can be used to create pathways without having to use the web client. It also has additional functionalities which have been developed as Pathvisio plugins. An example is the pathway statistics plugin, in which the representation of pathways in a database is tested for a dataset using a z-score calculation. (ref)
+Metabolomics is the field of research that investigates the role of groups of or separate metabolites in disease or other cellular processes. However, analysis and visualization of the data may cause problems.
 
-metabolomics: Why is it important?
-Previously, the emphasis in pathways was on gene products, but more recently metabolites have been added and are thought to play a more critical role in pathways. However, it can be challenging to find the correct data for the metabolite of interest.
- 
-Why develop a plugin for metabolite information
-Therefore, a plugin was developed that displays the critical information for a selected metabolite in a Wikipathways pathway. This plugin relieves the user from having to switch between browsers and Pathvisio to find important information about an interesting metabolite.
+Fortunately, some tools exist that can analyse and visualize metabolome data. Wikipathways is one of these tools and is an open access and open source database which contains a multitude of pathways for many different species of organisms. These pathways are created manually and are curated by the Wikipathways community. \cite{kelder} Pathvisio \cite{iersel} is a stand-alone application for computers that is based on Wikipathways and can be used to create pathways without having to use the web client. It also has additional functionalities which have been developed as Pathvisio plugins.
+
+In order to fully incorporate metabolomics in Pathvisio data analysis, a new plugin is needed that can display information about certain metabolites from within the Pathvisio window. This will allow the researcher to immediately discover interesting properties of those metabolites and allow the researcher to compare their NMR and MS metabolite results with predicted spectra available in commonly used databases.
+
 \section{Approach}
-?
+The approach of the project was to write a plugin that can show metabolite info when examining a pathway in Pathvisio.
 
 \begin{methods}
 \section{Methods}
 
-What does the plugin provide in general?
+%1. write a plugin to visualize MS and NMR properties of metabolites
+%2. using PathVisio as GUI
+%3. using the CDK for cheminformatics and property prediction
+%4. use HMDB voor experimental data
+
 The plugin provides important information for the selected metabolite in Pathvisio. It has been split up into three categories. First, general information is shown, including HMDB ID, InChI and InChI key, molecular formula and the metabolite's name. Secondly, linkouts to MS spectra and NMR spectra from the HMDB database are provided. Finally, carbon NMR chemical shifts have been calculated using CDK (Chemistry Development Kit) and are shown in the plugin window.
-Screenshot
-coming
 
-Databases used:
-HMDB: The HMDB database was used to visualize the MS and NMR information for the specific plugin.
-Cactus: The Chemical Identifier Resolver was used to find out the InChI and InChI key.
-CDK. The chemistry development kit was used to calculate the C13 NMR chemical shifts, and was used to calculate the molecular formula.
-BridgeDb. Implementation of BridgeDb was performed to find out the name of the metabolite and the HMDB ID.
-
+\begin{table}[ht]
+\caption{The databases used in the plugin}
+\centering  % used for centering table
+\begin{tabular}{p{1cm}p{7cm}}
+\hline\hline   
+Database & Usage \\ [0.5ex] 
+\hline         
+HMDB & Visualize MS and NMR information\\
+Cactus & InChI and InChI key\\
+CDK & Calculate C13 NMR chemical shifts and molecular formula.\\
+BridgeDb & Metabolite name and HMDB ID. \\ [1ex] 
+\hline 
+\end{tabular}
+\end{table}
 
 \end{methods}
 
-\begin{figure}[!tpb]%figure1
-%\centerline{\includegraphics{fig01.eps}}
-\caption{Caption, caption.}\label{fig:01}
-\end{figure}
+\begin{figure*}[!tpb]%figure1
+\centerline{\includegraphics[width=18cm]{figure1.png}}
+\caption{The pathvisio window with a pathway on the left, and the plugin on the right. The metabolite cysteine was selected, and all available information at the time is visible.}\label{fig:01}
+\end{figure*}
 
-\begin{figure}[!tpb]%figure2
+%\begin{figure}[!tpb]%figure2
 %\centerline{\includegraphics{fig02.eps}}
-\caption{Caption, caption.}\label{fig:02}
-\end{figure}
+%\caption{Caption, caption.}\label{fig:02}
+%\end{figure}
 
 \section{Discussion}
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     please remove the " % " symbol from \centerline{\includegraphics{fig01.eps}}
-%     as it may ignore the figures.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-
+Some things might cause problems using this plugin. Preferably, the plugin should also show experimental MS and NMR data in order to complement the predicted properties and allow comparison between the two.
+Another problem that the plugin faces is that it is limited by the metabolite identifier that are used in the Pathvisio pathways. Additionally, not all metabolites are well-defined in structure or function, which might lead to misinterpretation by CDK. 
+The biggest problem is the fact that the HMDB database was updated during the project. The new version does not allow prediction of the url. Therefore the parts of the plugin that originated from the HMDB database are currently not working.
 
 \section{Conclusion}
 
@@ -93,12 +88,6 @@ Summary of the plugin and what it can do.
 The plugin is a good tool to immediately provide users with the metabolite information they require. Link outs to the HMDB database will give enhanced functionality and the possibility for the used to easily find even more information than the plugin provides.
 Future development
 In the future, the plugin will provide more interesting metabolite information. In addition, plans have been made to create a pathway-level overview of all metabolites in the pathway.
-
-
-\section*{Acknowledgement}
-Text Text Text Text Text Text  Text Text.  \citealp{Boffelli03} might want to know about  text text text text
-
-\paragraph{Funding\textcolon} Text Text Text Text Text Text  Text Text.
 
 \bibliographystyle{natbib}
 %\bibliographystyle{achemnat}
@@ -108,6 +97,6 @@ Text Text Text Text Text Text  Text Text.  \citealp{Boffelli03} might want to kn
 %
 %\bibliographystyle{plain}
 %
-\bibliography{document}
+\bibliography{bioinf}
 
 \end{document}
