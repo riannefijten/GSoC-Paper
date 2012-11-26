@@ -45,27 +45,14 @@ In order to fully incorporate metabolomics in Pathvisio data analysis, a new plu
 %3. using the CDK for cheminformatics and property prediction
 %4. use HMDB voor experimental data
 
-The plugin provides important information for the selected metabolite in Pathvisio. It has been split up into three categories. First, general information is shown, including HMDB ID, InChI and InChI key, molecular formula and the metabolite's name. Secondly, linkouts to MS spectra and NMR spectra from the HMDB database are provided. Finally, carbon NMR chemical shifts have been calculated using CDK (Chemistry Development Kit) and are shown in the plugin window.
+The plugin provides important information for the selected metabolite in Pathvisio. It has been split up into three categories. First, general information is shown, including HMDB ID, InChI and InChI key, molecular formula and the metabolite's name. Secondly, linkouts to MS spectra and NMR spectra from the HMDB database are provided. Finally, carbon NMR chemical shifts have been calculated and are shown in the plugin window.
 
-\begin{table}[ht]
-\caption{The databases used in the plugin \cite{cdk} \cite{hmdb} \cite{bridge}}
-\centering  % used for centering table
-\begin{tabular}{p{1cm}p{7cm}}
-\hline\hline   
-Database & Usage \\ [0.5ex] 
-\hline         
-HMDB & Visualize MS and NMR information\\
-Cactus & InChI and InChI key\\
-CDK & Calculate C13 NMR chemical shifts and molecular formula.\\
-BridgeDb & Metabolite name and HMDB ID. \\ [1ex] 
-\hline 
-\end{tabular}
-\end{table}
+Several databases have been used to collect and calculate the many important metabolite properties.The HMDB database \cite{hmdb} was used to import imformation such as predicted NMR and MS spectra. Moreover, the Chemical Identifier Resolver was used to retrieve the InChI ID and InChI key. Furthermore, the NMR chemical shifts were calculated using the Chemistry Development Kit  \cite{cdk}. Finally, the BridgeDb framework implemented inside Pathvisio was used to obtain basic metabolite information such as the metabolite name and HMDB ID \cite{bridge}.
 
 \end{methods}
 
 \begin{figure*}[!tpb]%figure1
-\centerline{\includegraphics[width=18cm]{figure1.png}}
+\centerline{\includegraphics[width=10cm]{figure1.png}}
 \caption{The pathvisio window with a pathway on the left, and the plugin on the right. The metabolite cysteine was selected, and all available information at the time is visible.}\label{fig:01}
 \end{figure*}
 
@@ -76,7 +63,9 @@ BridgeDb & Metabolite name and HMDB ID. \\ [1ex]
 
 \section{Discussion}
 Some things might cause problems using this plugin. Preferably, the plugin should also show experimental MS and NMR data in order to complement the predicted properties and allow comparison between the two.
+
 Another problem that the plugin faces is that it is limited by the metabolite identifier that are used in the Pathvisio pathways. Additionally, not all metabolites are well-defined in structure or function, which might lead to misinterpretation by CDK. 
+
 The biggest problem is the fact that the HMDB database was updated during the project. The new version does not allow prediction of the url. Therefore the parts of the plugin that originated from the HMDB database are currently not working.
 
 \section{Conclusion}
@@ -84,7 +73,11 @@ The biggest problem is the fact that the HMDB database was updated during the pr
 Summary of the plugin and what it can do.
 The plugin is a good tool to immediately provide users with the metabolite information they require. Link outs to the HMDB database will give enhanced functionality and the possibility for the used to easily find even more information than the plugin provides.
 Future development
-In the future, the plugin will provide more interesting metabolite information. In addition, plans have been made to create a pathway-level overview of all metabolites in the pathway.
+\begin{itemize}
+    \item Visualization of experimental NMR and MS spectra
+    \item Overview of pathway metabolites and their properties
+    \item Addition of figures showing spectra to the tables
+\end{itemize}
 
 \bibliographystyle{natbib}
 %\bibliographystyle{achemnat}
